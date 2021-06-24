@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<title>Color Flipper</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<style>
+							.body{
+			    display:flex;
+			    justify-content:center;
+			    align-items:center;
+			    flex-direction:column;
+								}
+								.container{
+								width:50;
+	      height:100%;
+								margin:10%;
+								border:2px solid black;
+								}
+								ul li {
+												padding:2px;
+								}
+								.but1{
+											border:none;
+											border-radius:20px;
+											padding:20px;
+											background:orange;
+											color:white;
+								}
+								.but2{
+											border:none;
+											border-radius:20px;
+											padding:20px;
+											background:green;
+											color:white;
+								}
+							.but2 a{
+							color:white;
+							text-decoration:none;
+							}
+				</style>
+</head>
+<body>
+				<div>
+				<h1>Color Flipper</h1>
+				<p>This is simplest project to get into the Javascript.For this project,you need to know about,</p>
+				<ul>
+								<li>addEventListener</li>
+								<li>Math.random()</li>
+								<li>functions syntax</li>
+				</ul>
+			<p>Lets crack it...</p>
+				</div>
+				<div class="body">
+				<button class="but1">Change</button>
+				<p>The color is (in hexadecimal)</p><h3><span class="color">#000</span></h3>
+			<button class="but2"><a href="projects.html">Back to the page</a></button></div>
+<script>
+const color= [1,2,3,4,5,6,7,8,9,0,"A","B","C","D","E","F"];
+const btn=document.querySelector(".but1");
+var col= document.querySelector(".color");
+
+btn.addEventListener("click",function(){
+let hexcolor="#";
+for(let i=0;i<6;i++){
+hexcolor+=color[getrandom()];
+}
+col.textContent=hexcolor;
+document.body.style.backgroundColor=hexcolor;
+});
+function getrandom(){
+return  Math.floor(Math.random()*color.length);
+}
+
+				</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<title>countdown</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<style>
+								.body{
+								display:flex;
+								justify-content:center;
+								align-items:center;
+								}
+								.count{
+												display:flex;
+												border:3px solid grey;
+								}
+							.time{
+							display:flex;
+							flex-direction:column;
+							justify-content:center;
+							align-items:center;
+							margin:15px;
+							}
+								.but2{
+											border:none;
+											border-radius:20px;
+											padding:20px;
+											background:green;
+											color:white;
+								}
+							.but2 a{
+							color:white;
+							text-decoration:none;
+							}
+				</style>
+</head>
+<body>
+	<div>
+				<h1>Countdown</h1>
+				<p>This is one of the projects based on date and time.For this project,you need to know about,</p>
+				<ul>
+								<li>Javascript Date methods</li>
+								<li>new Date()</li>
+								<li>some mathematical conversion</li>
+				</ul>
+			<p>Lets crack it...</p>
+			<h3>Here is the countdown for Yughendran birthday..</h3>
+			<div class="body">
+							<div class="count">
+											<div class="time">
+															<h2 id="days">0</h2>
+															<span>days</span>
+											</div>
+											<div class="time">
+															<h2 id="hours">0</h2>
+															<span>hours</span>
+											</div>
+											<div class="time">
+															<h2 id="minutes">0</h2>
+															<span>minutes</span>
+											</div>
+											<div class="time">
+															<h2 id="seconds">0</h2>
+															<span>seconds</span>
+											</div>
+							</div>
+			</div>
+			<br>
+			<button class="but2"><a href="https://dharan01.github.io/five/projects.html">Back to the page</a></button>
+</body>
+<script>
+		const days = document.getElementById('days');
+const hours= document.getElementById('hours');
+const mins = document.getElementById('minutes');
+const secs = document.getElementById('seconds');
+const sdate="23 September 2021";
+function countdown(){
+const cdate= new Date(sdate);
+const currentDate = new Date();
+const diff=(cdate-currentDate)/1000;
+
+const cdays =Math.floor(diff/3600/24);
+const chours =Math.floor(diff/3600)%24;
+const cmins =Math.floor(diff/60)%60;
+const csecs =Math.floor(diff)%60;
+days.innerHTML=cdays;
+mins.innerHTML=cmins;
+hours.innerHTML=chours;
+secs.innerHTML=csecs;
+
+}
+countdown();
+setInterval(countdown,1000);
+	
+</script>
+</html>
