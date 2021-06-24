@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+				<title>Login</title>
+				<meta name ="viewport" content="width=device-width,initial-scale=1.0">
+				<link rel="stylesheet" href="styles.css">
+				<meta charset ="utf-8">
+</head>
+<body>
+			<div>
+						<p></p>
+						<form method="post">
+						<label>Username :</label>
+						<input type="text"
+required name="userid" required>
+						<br><br>
+						<label>password :</label>
+						<input type="password" name="pswrd">
+						<br><br>
+						<button type="submit" onclick="check(this.form)">Submit</button>
+						</form>
+</div>	
+</body>
+<script language="javascript"> function check(form) { if(form.userid.value == "fiveforfun" && form.pswrd.value == "1234") { window.open('https://dharan01.github.io/five/index.html') } else { alert("Error Password or Username") } } </script>
+</html>
