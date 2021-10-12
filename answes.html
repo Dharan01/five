@@ -1,0 +1,207 @@
+<html>
+    <head>
+    	<meta name="viewport" content = "width=device-width,initial-scale=1.0"> <link rel="stylesheet" href ="pop.css" type="text/css"/>
+
+<title>
+</title></head>
+<style>
+    html{
+    }
+    
+    #pop{ 
+    justify-content:center;
+    text-align:center;
+    position: fixed;
+    left:0;
+    bottom:0px;
+    height: 0;    
+    width: 100%;
+    background: white;
+    box-shadow: 0px 0px 5px black;
+    z-index: 1;
+    transition: 0.2s;
+    font-size: 50px;
+        }
+    
+    #quiz{
+    font-size: 15px;
+    text-align:left;
+    padding: 6px;    
+}
+    button{
+    background: midnightblue;
+    height: 30px;
+    border-radius: 10px;
+    border:none;
+    color: white;
+    font-weight: bolder;
+    box-shadow:0px 0px 2px black;
+}
+                
+        
+    @media (max-height:900px)    {
+    
+    #pop{ 
+    
+    background-position: right;
+    font-size: 20px;
+    height: 0;    
+    width: 100%;
+    border-radius: 0px 40px 0px 0px;
+    
+        }
+    #close { font-size: 20px;
+    }    
+}
+        
+        #main{ font-size: 17px;
+            
+                }
+</style>
+
+<body>
+<div  id="kn" style="position:fixed; height:30px; width:100%; left:0; top:0; background:midnightblue; z-index:1; color:white; text-align:center; font-weight:bolder; padding-top:10px;">Okat Multiple Choice Quiz</div>
+<div id="quiz">
+<br></br>
+<h4 align="center">SUBJECT: OPERATING SYSTEM FUNDAMENTALS</h4>
+<p align="center"><b>Answer All Questions (week 1&2)</b></p>
+
+
+<ol>
+
+<li>Which provides abstraction by acting as translator between hardware and OS for I/O?</li>
+   <input type="radio" name="question1" value="0"> bootstrap program    
+<br>             
+   <input type="radio" name="question1" value="0"> interrupt vector      
+<br>        
+   <input type="radio" name="question1" value="5"> device drivers
+<br></br>
+<li>Which of these is a function of OS ?</li>
+   <input type="radio" name="question2" value="0"> Disk Management Virus protection   
+<br>    
+   <input type="radio" name="question2" value="5"> File management       
+<br>          
+  <input type="radio" name="question2" value="0"> To keep system programers employed
+<br></br>
+<li>____ creates an environment that mimics the configurations of a real device whereas ____ duplicates all the hardware and software of a real device ?</li>
+  <input type="radio" name="question3" value="0">  Emulator , simulator   
+<br>
+ <input type="radio" name="question3" value="5">  Simulator , Emulator  
+<br>                
+<input type="radio" name="question3" value="0">  Emulator , Deamon
+<br></br>
+<li>Memory management does not involve _____</li>
+  <input type="radio" name="question4" value="0">  allocating memory space
+<br>                 
+   <input type="radio" name="question4" value="0"> Deciding which data to be in or out  
+<br>                  
+   <input type="radio" name="question4" value="5"> keeping track on current usage data
+<br></br>
+<li>Which memory is mostly volatile in nature ?</li>
+    <input type="radio" name="question5" value="5"> RAM 
+<br>                
+  <input type="radio" name="question5" value="0"> External memory    
+<br>               
+ <input type="radio" name="question5" value="0"> both RAM AND ROM
+<br></br>
+<li>Select the incorrect statement.</li>
+   <input type="radio" name="question6" value="0"> All multi-core systems are micro-processor system    
+<br>              
+ <input type="radio" name="question6" value="5"> Multicore systems are less efficient than multi chips with single core.      
+<br>             
+<input type="radio" name="question6" value="0"> Multicore systems have faster communication than multi chips with single core.
+<br></br>
+<li>Which of the following OS service helps to manage permissions of a file?</li>
+   <input type="radio" name="question7" value="5"> I/O operation
+<br>                  
+ <input type="radio" name="question7" value="0"> Registers    
+<br>               
+ <input type="radio" name="question7" value="0"> both I/O and resource allocation
+</ol>
+<br></br>
+    <button type="button" onclick="displayRadioValue()">Submit  </button>
+
+
+</div>
+
+<div  id="pop" >
+<p onClick="closeIt()"  id="close" style="text-align:right; padding-right:30px; font-weight:bolder; color:red;">&times;</p>
+<h4 id="congs" style="color:green;">🎊Congratulations🎊</h4>
+<h4 id="cong" style="color:red;"></h4>
+
+<h4><span id="okats"></span></h4>
+<div style="height:110px; width:110px; border-radius:110px; background:midnightblue; float:right;"><br><span style="color:red;" id="scores">0</span><br> <span style="color:white;">••••••••</span><br><span style="color:red;">35<br></br></span><br></div> 
+<br>
+
+<h4><span id="okat"></span></h4>
+<br>
+<a href="https://dharan01.github.io/five/answers.html" align="center"><button>View Answers</button></a>
+</div>
+<audio src="congrat.mp3" id="congrat"></audio>
+
+
+
+
+<script> 
+
+
+function closeIt(){
+document.getElementById('pop').style.height="0";
+var myMusic = document.getElementById('congrat');
+myMusic.pause()
+}
+
+
+
+function displayRadioValue() { 
+
+document.getElementById('pop').style.height= "68%";
+
+
+
+var quoteDiv = document.getElementById('okat');
+quoteDiv.innerHTML  ="You Scored";
+
+
+
+       
+            var ele = document.getElementsByTagName('input'); 
+
+              
+
+            for(i = 0; i < ele.length; i++) { 
+
+                  
+
+                if(ele[i].type="radio") { 
+
+                  
+
+                    if(ele[i].checked) 
+
+                        document.getElementById("scores").innerHTML 
+
+                               -=
+
+                               -(ele[i].value);
+
+
+
+
+
+
+
+
+                } 
+
+ 
+
+            } 
+
+        } 
+
+
+    
+</script>
+</body>
+    </html>
